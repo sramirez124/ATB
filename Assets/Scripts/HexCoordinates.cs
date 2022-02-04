@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HexCoordiantes : MonoBehaviour
+public class HexCoordinates : MonoBehaviour
 {
-    public static float xOffset = 2, yOffset = 1, zOffset = 1.73f;
+    public float xOffset = 2, yOffset = 1, zOffset = 1.73f;
+
+    internal Vector3Int GetHexCoords()
+        => offsetCoordinates;
 
     [Header("Offset coordinates")]
     [SerializeField]

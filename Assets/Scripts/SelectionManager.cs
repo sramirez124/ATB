@@ -11,6 +11,8 @@ public class SelectionManager : MonoBehaviour
 
     public HexGrid hexGrid;
 
+    List<Vector3Int> neighbors = new List<Vector3Int>();
+
     private void Awake()
     {
         if (mainCamera == null)
@@ -23,9 +25,19 @@ public class SelectionManager : MonoBehaviour
         if (FindTarget(mousePosition, out result))
         {
             Hex selectedHex = result.GetComponent<Hex>();
-
+            selectedHex.DisableHighlight();
+            foreach (Vector3Int neighbor in neighbors)
+            {
+                hexGrid.GetTileAt(neighbor).DisableHighlight();
+            }
             //! Used for testing players current tile and its neighbors
-            List<Vector3Int> neighbors = hexGrid.GetNeighborsFor(selectedHex.HexCoords);
+            neighbors = hexGrid.GetNeighborsFor(selectedHex.HexCoords);
+
+            foreach (Vector3Int neighbor in neighbors)
+            {
+                hexGrid.GetTileAt(neighbor).EnableHighlight();
+            }
+
             Debug.Log($"Neighbors for {selectedHex.HexCoords} are: ");
             foreach (Vector3Int neighborPos in neighbors)
             {

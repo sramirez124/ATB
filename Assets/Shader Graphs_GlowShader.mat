@@ -33,9 +33,9 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - DynamicGlow: 1
+    - DynamicGlow: 0
     - GlowPower: 1
     m_Colors:
-    - GlowColor: {r: 1.223529, g: 4, b: 0, a: 0}
+    - GlowColor: {r: 0.7490196, g: 0.7490196, b: 0.7490196, a: 0}
     - _Color: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
